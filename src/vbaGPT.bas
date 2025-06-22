@@ -64,7 +64,7 @@ ErrRequest:
     CALLGPT = "ERROR: " & Err.Number & " - " & Err.Description
 End Function
 
-Public Function RangeToMarkdown(rng As Range) As String
+Public Function RANGETOMARKDOWN(rng As Range) As String
     Dim row As Range
     Dim cell As Range
     Dim markdown As String
@@ -83,10 +83,10 @@ Public Function RangeToMarkdown(rng As Range) As String
         markdown = markdown & "| " & rowText & " |" & vbCrLf
     Next row
     
-    RangeToMarkdown = markdown
+    RANGETOMARKDOWN = markdown
 End Function
 
-Public Function TableToMarkdown(tableOrRange As Variant) As String
+Public Function TABLETOMARKDOWN(tableOrRange As Variant) As String
     Dim rng As Range
     Dim headers As Range
     Dim dataRange As Range
@@ -106,7 +106,7 @@ Public Function TableToMarkdown(tableOrRange As Variant) As String
     End If
     
     ' Create header row
-    markdown = RangeToMarkdown(headers)
+    markdown = RANGETOMARKDOWN(headers)
     
     ' Add separator row
     Dim headerCell As Range
@@ -119,10 +119,10 @@ Public Function TableToMarkdown(tableOrRange As Variant) As String
     
     ' Add data rows
     If Not dataRange Is Nothing Then
-        markdown = markdown & RangeToMarkdown(dataRange)
+        markdown = markdown & RANGETOMARKDOWN(dataRange)
     End If
     
-    TableToMarkdown = markdown
+    TABLETOMARKDOWN = markdown
 End Function
 
 
