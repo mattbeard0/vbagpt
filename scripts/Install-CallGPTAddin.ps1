@@ -1,11 +1,11 @@
 param(
     [string]$RepoRoot        = (Split-Path -Parent $MyInvocation.MyCommand.Definition),
-    [string]$AddinUrl        = 'https://github.com/<your-org>/excel-callgpt/raw/main/AddIn/CallGPT.xlam'
+    [string]$AddinUrl        = 'https://github.com/mattbeard0/vbagpt/raw/main/AddIn/VBAGPT.xlam'
 )
 
 # Paths
 $addinsFolder = Join-Path $env:APPDATA 'Microsoft\AddIns'
-$addinPath    = Join-Path $addinsFolder 'CallGPT.xlam'
+$addinPath    = Join-Path $addinsFolder 'VBAGPT.xlam'
 
 # Ensure AddIns folder exists
 if (-not (Test-Path $addinsFolder)) {
@@ -55,7 +55,7 @@ $wb.Close()
 $addinObj = $excel.AddIns.Add($addinPath, $true)
 $addinObj.Installed = $true
 
-Write-Host "CallGPT add-in installed and enabled successfully!"
+Write-Host "VBAGPT add-in installed and enabled successfully!"
 
 # Clean up
 $excel.Quit()
